@@ -17,4 +17,5 @@ new Service()
       yield chunk
     }
   })
+  .post('llm/list', async () => ollama.list())
   .start()
