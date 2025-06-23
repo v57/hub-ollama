@@ -1,0 +1,16 @@
+{
+  "name": "hub-ollama",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "hub-service": "v57/hub-service",
+    "ollama": "^0.5.16"
+  }
+}
