@@ -11,7 +11,7 @@
         "@types/bun": "latest",
       },
       "peerDependencies": {
-        "typescript": "^5",
+        "typescript": "^5.8.3",
       },
     },
   },
@@ -22,9 +22,9 @@
 
     "bun-types": ["bun-types@1.2.17", "", { "dependencies": { "@types/node": "*" } }, "sha512-ElC7ItwT3SCQwYZDYoAH+q6KT4Fxjl8DtZ6qDulUFBmXA8YB4xo+l54J9ZJN+k2pphfn9vk7kfubeSd5QfTVJQ=="],
 
-    "channel": ["channel@github:v57/channel#42d2d0f", { "peerDependencies": { "typescript": "^5.0.0" } }, "v57-channel-42d2d0f"],
+    "channel": ["channel@github:v57/channel#2e7a4db", { "peerDependencies": { "typescript": "^5.0.0" } }, "v57-channel-2e7a4db"],
 
-    "hub-service": ["hub-service@github:v57/hub-service#e13ed5c", { "dependencies": { "channel": "v57/channel" }, "peerDependencies": { "typescript": "^5.8.3" } }, "v57-hub-service-e13ed5c"],
+    "hub-service": ["hub-service@github:v57/hub-service#b085122", { "dependencies": { "channel": "v57/channel" }, "peerDependencies": { "typescript": "^5.8.3" } }, "v57-hub-service-b085122"],
 
     "ollama": ["ollama@0.5.16", "", { "dependencies": { "whatwg-fetch": "^3.6.20" } }, "sha512-OEbxxOIUZtdZgOaTPAULo051F5y+Z1vosxEYOoABPnQKeW7i4O8tJNlxCB+xioyoorVqgjkdj+TA1f1Hy2ug/w=="],
 
