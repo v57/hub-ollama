@@ -5,7 +5,7 @@ import { Service } from 'hub-service'
 type PostRequest = ChatRequest & { stream: false }
 type StreamRequest = ChatRequest & { stream: true }
 
-new Service()
+new Service(process.argv[2])
   .post('llm/local', async (body: PostRequest) => {
     await ollama.pull({ model: body.model })
     body.stream = false
