@@ -5,7 +5,11 @@ import { Service } from 'hub-service'
 type PostRequest = ChatRequest & { stream: false }
 type StreamRequest = ChatRequest & { stream: true }
 
-new Service(process.argv[2])
+new Service({
+  address: process.argv[2],
+  name: 'Ollama Service',
+  icon: { symbol: 'apple.intelligence', text: 'LLM' },
+})
   .post('llm/local', async (body: PostRequest) => {
     await ollama.pull({ model: body.model })
     body.stream = false
