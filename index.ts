@@ -10,18 +10,26 @@ new Service({
   name: 'Ollama Service',
   icon: { symbol: 'apple.intelligence', text: 'LLM' },
 })
-  .post('llm/local', async (body: PostRequest) => {
-    await ollama.pull({ model: body.model })
-    body.stream = false
-    return await ollama.chat(body)
-  })
-  .stream('llm/local', async function* (body: StreamRequest) {
-    await ollama.pull({ model: body.model })
-    body.stream = true
-    const response = await ollama.chat(body)
-    for await (const chunk of response) {
-      yield chunk
-    }
-  })
+  .post(
+    'llm/local',
+    async (body: PostRequest) => {
+      await ollama.pull({ model: body.model })
+      body.stream = false
+      return await ollama.chat(body)
+    },
+    { limit: 4 },
+  )
+  .stream(
+    'llm/local',
+    async function* (body: StreamRequest) {
+      await ollama.pull({ model: body.model })
+      body.stream = true
+      const response = await ollama.chat(body)
+      for await (const chunk of response) {
+        yield chunk
+      }
+    },
+    { limit: 4 },
+  )
   .post('llm/list', async () => ollama.list())
   .start()
