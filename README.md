@@ -2,6 +2,7 @@
   <img alt="Containerization logo" src="./icon.png" width="70" valign="middle">
   &nbsp;ollama
 </h1>
+
 > Made for [Hub](https://hub.v57.dev)
 
 Share your Ollama models with Hub network. Run on multiple devices, connect to a single Hub and it will automatically split the load between them! Very good for agents and server stuff
