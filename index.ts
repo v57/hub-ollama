@@ -2,6 +2,7 @@ import ollama from 'ollama'
 import type { ChatRequest } from 'ollama'
 import { Service } from 'hub-service'
 import { access } from './access'
+import { descriptions } from './descriptions'
 
 type PostRequest = ChatRequest & { stream: false }
 type StreamRequest = ChatRequest & { stream: true }
@@ -17,7 +18,7 @@ new Service({
       body.stream = false
       return await ollama.chat(body)
     },
-    { ...access['llm/local'], limit: 4 },
+    { ...access['llm/local'], ...descriptions.post['llm/local'], limit: 4 },
   )
   .stream(
     'llm/local',
@@ -28,7 +29,7 @@ new Service({
         yield chunk
       }
     },
-    { ...access['llm/local'], limit: 4 },
+    { ...access['llm/local'], ...descriptions.stream['llm/local'], limit: 4 },
   )
-  .post('llm/list', async () => ollama.list(), access['llm/list'])
+  .post('llm/list', async () => ollama.list(), { ...access['llm/list'], ...descriptions.post['llm/list'] })
   .start()
